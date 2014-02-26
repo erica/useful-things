@@ -1,10 +1,8 @@
-//
-//  SpeechHelper.m
-//  Hello World
-//
-//  Created by Erica Sadun on 2/26/14.
-//  Copyright (c) 2014 Erica Sadun. All rights reserved.
-//
+/*
+ 
+ Erica Sadun, http://ericasadun.com
+ 
+ */
 
 #import "SpeechHelper.h"
 

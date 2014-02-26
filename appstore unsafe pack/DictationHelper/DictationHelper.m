@@ -18,7 +18,6 @@ static DictationHelper *sharedInstance = nil;
 @class UIDictationController;
 
 @interface UIDictationController
-+ (UIDictationController *) activeInstance;
 + (UIDictationController *) sharedInstance;
 - (void) startDictation;
 - (void) stopDictation;
@@ -30,7 +29,7 @@ static DictationHelper *sharedInstance = nil;
 
 @implementation DictationHelper
 {
-    UITextField *secretView;
+    UITextField *secretTextField;
     id dictationController;
     DictationBlock completion;
     BOOL handled;
@@ -38,13 +37,13 @@ static DictationHelper *sharedInstance = nil;
 
 - (void) preheat
 {
-    if (!secretView)
+    if (!secretTextField)
     {
-        secretView = [[UITextField alloc] init];
+        secretTextField = [[UITextField alloc] initWithFrame:CGRectZero];
         UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-        [window addSubview:secretView];
-        secretView.inputView = [[UIView alloc] init];
-        secretView.delegate = self;
+        [window addSubview:secretTextField];
+        secretTextField.inputView = [[UIView alloc] init];
+        secretTextField.delegate = self;
     }
     
     if (!dictationController)
@@ -77,6 +76,10 @@ static DictationHelper *sharedInstance = nil;
     // Treat this dictation as handled
     handled = YES;
     _inUse = NO;
+    completion = nil;
+
+    // Resign first responder
+    [textField resignFirstResponder];
     
     return YES;
 }
@@ -96,8 +99,14 @@ static DictationHelper *sharedInstance = nil;
     
     // 3. Assume the dictation didn't work
     completion(nil);
+    
+    // 4. Reset everything
     handled = NO;
     _inUse = NO;
+    completion = nil;
+    
+    // 5. Resign first responder
+    [secretTextField resignFirstResponder];
 }
 
 - (void) dictateWithDuration: (CGFloat) numberOfSeconds
@@ -111,8 +120,8 @@ static DictationHelper *sharedInstance = nil;
     _inUse = YES;
     handled = NO;
         
-    secretView.text = @"";
-    [secretView becomeFirstResponder];
+    secretTextField.text = @"";
+    [secretTextField becomeFirstResponder];
     
     [[UIDevice currentDevice] playInputClick];
     [dictationController startDictation];

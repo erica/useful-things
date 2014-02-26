@@ -33,6 +33,7 @@ static DictationHelper *sharedInstance = nil;
     UITextField *secretView;
     id dictationController;
     DictationBlock completion;
+    BOOL handled;
 }
 
 - (void) preheat
@@ -73,17 +74,50 @@ static DictationHelper *sharedInstance = nil;
     
     if (completion) completion(tftext);
     
+    // Treat this dictation as handled
+    handled = YES;
+    _inUse = NO;
+    
     return YES;
+}
+
+- (void) fallback
+{
+    // 1. Test completion
+    if (!completion) return;
+
+    // 2. Check for handled
+    if (handled)
+    {
+        _inUse = NO;
+        handled = NO;
+        return;
+    }
+    
+    // 3. Assume the dictation didn't work
+    completion(nil);
+    handled = NO;
+    _inUse = NO;
 }
 
 - (void) dictateWithDuration: (CGFloat) numberOfSeconds
 {
+    if (_inUse)
+    {
+        NSLog(@"Error: Dictation Helper already in use");
+        return;
+    }
+    
+    _inUse = YES;
+    handled = NO;
+        
     secretView.text = @"";
     [secretView becomeFirstResponder];
     
     [[UIDevice currentDevice] playInputClick];
     [dictationController startDictation];
     [self performSelector:@selector(stopDictation) withObject:nil afterDelay:numberOfSeconds];
+    [self performSelector:@selector(fallback) withObject:nil afterDelay:numberOfSeconds + 1.0f];
 }
 
 - (void) dictateWithDuration: (CGFloat) duration completion:(DictationBlock) completionBlock

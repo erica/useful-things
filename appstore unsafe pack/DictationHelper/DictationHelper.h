@@ -3,6 +3,7 @@
  Erica Sadun, http://ericasadun.com
  
  NOT APP STORE SAFE BUT HANDY
+ Siri-ready devices only. Will not work in simulator.
  
  */
 

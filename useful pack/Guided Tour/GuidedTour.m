@@ -165,10 +165,18 @@ NSString *const kHasBeenTrainedKey = @"kHasBeenTrainedKey";
 
 - (void) previousStage
 {
-    if (popover) {[popover dismissPopoverAnimated:YES]; popover = nil;}
-    int s = (int) stageIndex;
-    s = MAX(0, s - 2);
-    [self runStage:s];
+    if (IS_IPAD)
+    {
+        if (popover) {[popover dismissPopoverAnimated:YES]; popover = nil;}
+        int s = (int) stageIndex;
+        s = MAX(0, s - 2);
+        [self runStage:s];
+    }
+    else
+    {
+        if (stageIndex > 0)
+            [_delegate.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void) launch

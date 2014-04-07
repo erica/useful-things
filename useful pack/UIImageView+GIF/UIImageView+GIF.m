@@ -10,6 +10,7 @@
 
 @implementation UIImageView (GIFSupport)
 
+// This is a really minimal implementation that assumes equally-spaced frames
 - (void) loadGIFWithData: (NSData *) gifData
 {
     if (!gifData) return;
@@ -40,19 +41,22 @@
     
     self.animationImages = frames;
     self.animationDuration = totalDuration;
+    self.contentMode = UIViewContentModeScaleAspectFit;
     [self startAnimating];
-
 }
 
 - (void) loadGIFFromURL: (NSURL *) url
 {
     if (!url) return;
-    NSData *gifData = [NSData dataWithContentsOfURL:url];
-    if (!gifData) return;
-    [self loadGIFWithData:gifData];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *gifData = [NSData dataWithContentsOfURL:url];
+        if (!gifData) return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self loadGIFWithData:gifData];
+        });
+    });
 }
 
-// This is a really minimal implementation that assumes equally-spaced frames
 - (void) loadGIFFromPath: (NSString *) gifPath
 {
     if (!gifPath) return;

@@ -59,7 +59,8 @@
 
 - (NSAttributedString *) contentString
 {
-    NSString *htmlString = [NSString stringWithFormat:@"<h2>%@</h2>%@", _header, _body];
+    NSString *headerString = _header ? [NSString stringWithFormat:@"<h2>%@</h2>", _header] : @"";
+    NSString *htmlString = [NSString stringWithFormat:@"%@%@", headerString, _body ? : @""];
     NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dictionary = @{NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType};
     NSAttributedString *contentString = [[NSAttributedString alloc] initWithData: data options:dictionary documentAttributes:nil error:nil];

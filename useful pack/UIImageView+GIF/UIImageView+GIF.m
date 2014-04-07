@@ -10,19 +10,17 @@
 
 @implementation UIImageView (GIFSupport)
 
-// This is a really minimal implementation that assumes equally-spaced frames
-- (void) loadGIFFromPath: (NSString *) gifPath
+- (void) loadGIFWithData: (NSData *) gifData
 {
-    NSData *data = [NSData dataWithContentsOfFile:gifPath];
-    if (!data) return;
+    if (!gifData) return;
     
     NSMutableArray *frames = [NSMutableArray array];
     CFTimeInterval totalDuration = 0.0f;
     
-    CGImageSourceRef sourceRef = CGImageSourceCreateWithData((__bridge CFDataRef) data, NULL);
+    CGImageSourceRef sourceRef = CGImageSourceCreateWithData((__bridge CFDataRef) gifData, NULL);
     if (!sourceRef) return;
     size_t frameCount = CGImageSourceGetCount(sourceRef);
-
+    
     for (NSUInteger index = 0; index < frameCount; index++)
     {
         // Fetch frame
@@ -43,6 +41,24 @@
     self.animationImages = frames;
     self.animationDuration = totalDuration;
     [self startAnimating];
+
+}
+
+- (void) loadGIFFromURL: (NSURL *) url
+{
+    if (!url) return;
+    NSData *gifData = [NSData dataWithContentsOfURL:url];
+    if (!gifData) return;
+    [self loadGIFWithData:gifData];
+}
+
+// This is a really minimal implementation that assumes equally-spaced frames
+- (void) loadGIFFromPath: (NSString *) gifPath
+{
+    if (!gifPath) return;
+    NSData *gifData = [NSData dataWithContentsOfFile:gifPath];
+    if (!gifData) return;
+    [self loadGIFWithData:gifData];
 }
 
 - (instancetype) initWithGIFImagePath: (NSString *) gifPath

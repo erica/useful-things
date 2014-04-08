@@ -56,3 +56,6 @@ Another "what it says on the label" class. Circular image views with optional bo
 
 ###Touch Kit###
 Add touch points to your apps for creating demos. See [my write up over on InformIT](http://www.informit.com/articles/article.aspx?p=1881388) for details.
+
+###Airplay Motion Effects Enabler###
+Enable motion effects over AirPlay. Not App Store safe. Use for creating demos (or in my case, book examples.)

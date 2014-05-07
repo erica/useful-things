@@ -1,25 +1,32 @@
 #useful-things#
 _[Not to be confused with "needful things" (see King, Stephen)]_
 
-###Speech and Dictation:###
-Utilities for speaking and listening. The speaking stuff is App Store safe. The dictation classes are not.
+* __useful pack__: app store safe and general purpose
+* __less useful pack__: fun stuff
+* __handy pack__: building demos, assist with dev/testing
+* __app store unsafe pack__: for in-house work only
+* __constraint minipack__: 85% of what you need in one short .h/.m pair
+* __informit__: items from write-ups
 
-<pre>[SpeechHelper speakModalString:@"Please say something"];
-[[DictationHelper sharedInstance] dictateWithDuration:5.0f 
-    completion:^(NSString *dictationString) {
-        if (dictationString)
-            NSLog(@"You said:'%@'", dictationString);
-        else
-            NSLog(@"No response");}];
-</pre>
+***Airplay Motion Effects Enabler***
+Enable motion effects over AirPlay. Not App Store safe. Use for creating demos (or in my case, book examples.)
 
-###Constraint MiniPack###
+***Blocking Animations***
+Stacking solution that avoids nested completion blocks.
+
+***Constraint MiniPack***
 Although you'll be best served grabbing the latest version from [my Auto Layout repo](https://github.com/erica/Auto-Layout-Demystified), I've put a copy here for easy reference.
 
-###Triggered Taps###
-Deliberate touches.  Write-up forthcoming on InformIT. I'll link when it goes live.
+***Dictation Helper***
+_See Speech and Dictation_
 
-###Guided Tour###
+***Drag In View***
+Using damped harmonics to create a draggable drawer. Will add InformIT link when the post goes live.
+
+***GIF Image View***
+This is a fairly simple implementation that assumes each GIF frame is linearly spaced out. Use <tt>initWithGIFImagePath:</tt> or <tt>loadGIFFromPath:</tt>.
+
+***Guided Tour***
 What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-up forthcoming on InformIT. I'll link when it goes live.
 <pre>- (void) setupTour
 {
@@ -48,14 +55,49 @@ What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-u
     [tour addStage:stage];
 }</pre>
 
-###GIF Image View###
-This is a fairly simple implementation that assumes each GIF frame is linearly spaced out. Use <tt>initWithGIFImagePath:</tt> or <tt>loadGIFFromPath:</tt>.
+***Handy Pack***
+Useful items for testing and development
 
-###Round Image View###
+***Insultomatic***
+Returns a random Shakespearian string. Adapted from [Chris Seidel's web page](http://www.pangloss.com/seidel/shake_rule.html)
+
+***Round Image View***
 Another "what it says on the label" class. Circular image views with optional borders.
 
-###Touch Kit###
+***Speech and Dictation:***
+Utilities for speaking and listening. The speaking stuff is App Store safe. The dictation classes are not.
+
+<pre>[SpeechHelper speakModalString:@"Please say something"];
+[[DictationHelper sharedInstance] dictateWithDuration:5.0f 
+    completion:^(NSString *dictationString) {
+        if (dictationString)
+            NSLog(@"You said:'%@'", dictationString);
+        else
+            NSLog(@"No response");}];
+</pre>
+
+***Touch Kit***
 Add touch points to your apps for creating demos. See [my write up over on InformIT](http://www.informit.com/articles/article.aspx?p=1881388) for details.
 
-###Airplay Motion Effects Enabler###
-Enable motion effects over AirPlay. Not App Store safe. Use for creating demos (or in my case, book examples.)
+***Triggered Taps***
+Deliberate touches.  See [my write up on InformIT](http://www.informit.com/articles/article.aspx?p=2211158) for details.
+
+***View Dragging***
+From my Auto Layout book, adds constraint-based view dragging. This version is tweaked to remove constraints after moves because I needed to use it to demonstrate view dynamics. For use with the Drag In View. InformIT write-up forthcoming.
+
+##Books##
+* [Latest Cookbook](https://github.com/erica/iOS-7-Cookbook)
+* [Auto Layout](https://github.com/erica/Auto-Layout-Demystified)
+* [Drawing/Quartz](https://github.com/erica/iOS-Drawing)
+
+##Various##
+* [NSArray Utilities](https://github.com/erica/NSArray-Utilities)
+* [NSDate Utilities](https://github.com/erica/NSDate-Extensions)
+* [NSObject Utilities](https://github.com/erica/NSObject-Utility-Categories)
+* [Color Utilities](https://github.com/erica/uicolor-utilities)
+* [Data Tube](https://github.com/erica/DataTube)
+* [ABContact](https://github.com/erica/ABContactHelper)
+* [Camera](https://github.com/erica/Camera-Image-Helper)
+* [UIDevice](https://github.com/erica/uidevice-extension)
+* [Signing Apps](https://github.com/erica/App-Signer)
+

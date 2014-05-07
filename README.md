@@ -53,7 +53,8 @@ What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-u
     stage.gifPath = [[NSBundle mainBundle] pathForResource:@"clpURch" ofType:@"gif"];
     stage.nextButtonText = @"Done";
     [tour addStage:stage];
-}</pre>
+}
+</pre>
 
 ***Handy Pack***
 Useful items for testing and development

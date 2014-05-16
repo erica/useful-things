@@ -59,6 +59,9 @@ What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-u
 ***Handy Pack***
 Useful items for testing and development
 
+***Movie Maker***
+Use blocks to build AVFoundation movie frames. InformIT write-up forthcoming.
+
 ***Insultomatic***
 Returns a random Shakespearian string. Adapted from [Chris Seidel's web page](http://www.pangloss.com/seidel/shake_rule.html)
 

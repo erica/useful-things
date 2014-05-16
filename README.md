@@ -62,7 +62,7 @@ Useful items for testing and development
 ***Movie Maker***
 Use blocks to build AVFoundation movie frames. InformIT write-up forthcoming.
 
-[![ScreenShot](https://github.com/erica/useful-things/blob/master/Screenshots/MovieMakerShot.png)](http://www.youtube.com/watch?v=zLMzlCDtfo0)
+[![ScreenShot](http://img.youtube.com/vi/zLMzlCDtfo0/0.jpg)](http://www.youtube.com/watch?v=zLMzlCDtfo0)
 
 ***Insultomatic***
 Returns a random Shakespearian string. Adapted from [Chris Seidel's web page](http://www.pangloss.com/seidel/shake_rule.html)

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^ImplicitCompletionBlock)(NSString *key);
+typedef void (^ImplicitCompletionBlock)(NSString *key, BOOL finished);
 
 @interface CustomLayer : CALayer
 @property (nonatomic, assign) CGFloat animationDuration;

@@ -15,9 +15,9 @@
 {
     NSString *key = [anim valueForKey:@"Animation Type"];
     // NSLog(@"Key: %@, Finished: %@", key, flag ? @"Yes" : @"No");
-    if (_completionBlock && flag)
+    if (_completionBlock)
     {
-        _completionBlock(key);
+        _completionBlock(key, flag);
     }
 }
 

@@ -59,6 +59,9 @@ What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-u
 ***Handy Pack***
 Useful items for testing and development
 
+***Intrinsic Transitions***
+Will add InformIT link when the post goes live.
+
 ***Movie Maker***
 Use blocks to build AVFoundation movie frames. InformIT write-up forthcoming.
 
@@ -81,6 +84,9 @@ Utilities for speaking and listening. The speaking stuff is App Store safe. The 
         else
             NSLog(@"No response");}];
 </pre>
+
+***Temporary Kit***
+Items that will be moved to other repositories because they're for books / projects that aren't yet public
 
 ***Touch Kit***
 Add touch points to your apps for creating demos. See [my write up over on InformIT](http://www.informit.com/articles/article.aspx?p=1881388) for details.

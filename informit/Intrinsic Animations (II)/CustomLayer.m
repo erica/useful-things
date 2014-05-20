@@ -14,13 +14,24 @@
 @dynamic logoLevel;
 @dynamic imageLevel;
 
+// Initialize custom values
+- (instancetype) init
+{
+    if (!(self = [super init])) return self;
+    self.logoLevel = @(0.0f);
+    self.imageLevel = @(0.0f);
+    // _animationDuration = 2.0f; // slow everything down
+    [self setNeedsDisplay];
+    return self;
+}
+
+// Path
 - (UIBezierPath *) path
 {
-//    UIBezierPath *bezierPath = [PathMaker carrot];
-//    FitPathToRect(bezierPath, CGRectInset(self.bounds, 40, 40));
-//    return bezierPath;
-    UIBezierPath *bezierPath = [PathMaker checkMark];
-    FitPathToRect(bezierPath, CGRectInset(self.bounds, 0.25 * self.bounds.size.width, 0.25 * self.bounds.size.height));
+    static UIBezierPath *bezierPath = nil;
+    if (!bezierPath)
+        bezierPath = [PathMaker carrot];
+    FitPathToRect(bezierPath, CGRectInset(self.bounds, 40, 40));
     return bezierPath;
 }
 
@@ -33,16 +44,7 @@
     return animation;
 }
 
-- (instancetype) init
-{
-    if (!(self = [super init])) return self;
-    self.logoLevel = @(0.0f);
-    self.imageLevel = @(0.0f);
-    // _animationDuration = 2.0f; // slow everything down
-    [self setNeedsDisplay];
-    return self;
-}
-
+// Animate
 -(id<CAAction>)actionForKey:(NSString *)key
 {
     return [self customAnimationForKey:key];
@@ -50,8 +52,6 @@
 
 - (void) drawInContext:(CGContextRef) context
 {
-//    static NSInteger index = 0;
-//    NSLog(@"Draw in context %zd", index++);
     static UIImage *image = nil;
     if (!image) image = [UIImage imageNamed:@"e"];
     

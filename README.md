@@ -27,7 +27,7 @@ Using damped harmonics to create a draggable drawer. Will add InformIT link when
 This is a fairly simple implementation that assumes each GIF frame is linearly spaced out. Use <tt>initWithGIFImagePath:</tt> or <tt>loadGIFFromPath:</tt>.
 
 ***Guided Tour***
-What it says on the wrapper. Create a tour, add stages, and let 'er rip. Write-up forthcoming on InformIT. I'll link when it goes live.
+What it says on the wrapper. Create a tour, add stages, and let 'er rip. Read [the post about this](http://www.informit.com/articles/article.aspx?p=2216999) on InformIT.
 <pre>- (void) setupTour
 {
     tour = [[GuidedTour alloc] init];

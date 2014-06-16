@@ -21,7 +21,7 @@ Although you'll be best served grabbing the latest version from [my Auto Layout 
 _See Speech and Dictation_
 
 ***Drag In View***
-Using damped harmonics to create a draggable drawer. Will add InformIT link when the post goes live.
+Using damped harmonics to create a draggable drawer. Write-up can be [found here](http://www.informit.com/articles/article.aspx?p=2217000).
 
 ***GIF Image View***
 This is a fairly simple implementation that assumes each GIF frame is linearly spaced out. Use <tt>initWithGIFImagePath:</tt> or <tt>loadGIFFromPath:</tt>.
@@ -63,7 +63,7 @@ Useful items for testing and development
 Will add InformIT link when the post goes live.
 
 ***Movie Maker***
-Use blocks to build AVFoundation movie frames. InformIT write-up forthcoming.
+Use blocks to build AVFoundation movie frames. Here's the [InformIT writeup](http://www.informit.com/articles/article.aspx?p=2223713).
 
 [![ScreenShot](http://img.youtube.com/vi/zLMzlCDtfo0/0.jpg)](http://www.youtube.com/watch?v=zLMzlCDtfo0)
 
@@ -95,7 +95,7 @@ Add touch points to your apps for creating demos. See [my write up over on Infor
 Deliberate touches.  See [my write up on InformIT](http://www.informit.com/articles/article.aspx?p=2211158) for details.
 
 ***View Dragging***
-From my Auto Layout book, adds constraint-based view dragging. This version is tweaked to remove constraints after moves because I needed to use it to demonstrate view dynamics. For use with the Drag In View. InformIT write-up forthcoming.
+From my Auto Layout book, adds constraint-based view dragging. This version is tweaked to remove constraints after moves because I needed to use it to demonstrate view dynamics. For use with the [Drag In View](http://www.informit.com/articles/article.aspx?p=2217000).
 
 ##Books##
 * [Latest Cookbook](https://github.com/erica/iOS-7-Cookbook)

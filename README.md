@@ -60,15 +60,19 @@ What it says on the wrapper. Create a tour, add stages, and let 'er rip. Read [t
 Useful items for testing and development
 
 ***Intrinsic Transitions***
-Will add InformIT link when the post goes live.
+[Part 1](http://www.informit.com/articles/article.aspx?p=2233980)
+[Part 2](http://www.informit.com/articles/article.aspx?p=2233981)
+
+***Insultomatic***
+Returns a random Shakespearian string. Adapted from [Chris Seidel's web page](http://www.pangloss.com/seidel/shake_rule.html)
 
 ***Movie Maker***
 Use blocks to build AVFoundation movie frames. Here's the [InformIT writeup](http://www.informit.com/articles/article.aspx?p=2223713).
 
 [![ScreenShot](http://img.youtube.com/vi/zLMzlCDtfo0/0.jpg)](http://www.youtube.com/watch?v=zLMzlCDtfo0)
 
-***Insultomatic***
-Returns a random Shakespearian string. Adapted from [Chris Seidel's web page](http://www.pangloss.com/seidel/shake_rule.html)
+***PDF Image***
+Loads vector PDFs into sized UIImages
 
 ***Round Image View***
 Another "what it says on the label" class. Circular image views with optional borders.

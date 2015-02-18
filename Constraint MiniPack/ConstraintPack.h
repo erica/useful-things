@@ -11,27 +11,26 @@
  Allow constraint utilities to work cross-platform
  */
 
-// Imports
+@import Foundation;
 #if TARGET_OS_IPHONE
     @import UIKit;
-    @import Foundation;
-#elif TARGET_OS_MAC
-    #import <Foundation/Foundation.h>
+#else
+    @import Cocoa;
+    @import AppKit;
 #endif
 
-// Compatibility aliases
-#ifndef  COMPATIBILITY_ALIASES_DEFINED
+// Compatibility
 #if TARGET_OS_IPHONE
-    @compatibility_alias View UIView;
-    @compatibility_alias Color UIColor;
-    @compatibility_alias Image UIImage;
+    #define View UIView
+    #define Color UIColor
+    #define Image UIImage
+    #define Font UIFont
 #elif TARGET_OS_MAC
-    @compatibility_alias View NSView;
-    @compatibility_alias Color NSColor;
-    @compatibility_alias Image NSImage;
+    #define View NSView
+    #define Color NSColor
+    #define Image NSImage
+    #define Font NSFont
 #endif
-#endif
-#define COMPATIBILITY_ALIASES_DEFINED
 
 /*
  CONVENIENCE CONSTANTS
@@ -41,8 +40,14 @@
 #define SkipConstraint  (CGRectNull.origin.x)
 
 /*
+ UTILITY
+ */
+View *NearestCommonViewAncestor(View *view1, View *view2);
+
+/*
  SELF-INSTALLING CONSTRAINTS
  Constraints install to their natural destination
+ Self-install is not needed in iOS 8 and later
  */
 @interface NSLayoutConstraint (ConstraintPack)
 - (BOOL) install;
@@ -66,13 +71,8 @@ void RemoveConstraints(NSArray *constraints);
 @property (nonatomic, readonly) NSArray *constraintReferences;
 @property (nonatomic) BOOL autoLayoutEnabled;
 - (View *) nearestCommonAncestorWithView: (View *) view;
+- (void) dumpViewReport;
 @end
-
-/*
- DEBUGGING
- */
-// Keep view within superview
-void ConstrainViewToSuperview(View *view, CGFloat inset, NSUInteger priority);
 
 /*
  SINGLE VIEW LAYOUT
@@ -111,6 +111,7 @@ void ConstrainViewsWithBinding(NSUInteger priority, NSString *formatString, NSDi
 #if TARGET_OS_IPHONE
 void StretchViewToTopLayoutGuide(UIViewController *controller, View *view, NSInteger inset, NSUInteger priority);
 void StretchViewToBottomLayoutGuide(UIViewController *controller, View *view, NSInteger inset, NSUInteger priority);
+
 void StretchViewToController(UIViewController *controller, View *view, CGSize inset, NSUInteger priority);
 @interface UIViewController (ExtendedLayouts)
 @property (nonatomic) BOOL extendLayoutUnderBars;
@@ -129,4 +130,20 @@ void SetResistancePriority(View *view, NSUInteger priority);
 #if TARGET_OS_IPHONE
 void LayoutThenCleanup(View *view, void(^layoutBlock)());
 #endif
+
+/*
+ PLACEMENT
+ */
+void ConstrainViewToSuperview(View *view, CGFloat inset, NSUInteger priority);
+void PlaceViewInSuperview(View *view, NSString *position, CGFloat inseth, CGFloat insetv, CGFloat priority);
+#if TARGET_OS_IPHONE
+void PlaceView(UIViewController *controller, UIView *view, NSString *position, CGFloat inseth, CGFloat insetv, CGFloat priority);
+#endif
+void AddConstraint(NSString *request, View *view1, View * view2, CGFloat m, CGFloat c, NSInteger priority);
+
+// Cleanup
+#undef View
+#undef Color
+#undef Image
+#undef Font
 

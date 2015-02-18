@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FA8D2538-5817-4A31-A4E8-1FDC68349F73</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyCocoaApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A8C3B406B25313632774A3BF0ADBADCBA9AC39DF</key>
+		<string>https://github.com/erica/useful-things</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>informit/Building Mac/MyCocoaApp/MyCocoaApp.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A8C3B406B25313632774A3BF0ADBADCBA9AC39DF</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/erica/useful-things</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A8C3B406B25313632774A3BF0ADBADCBA9AC39DF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A8C3B406B25313632774A3BF0ADBADCBA9AC39DF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Useful%20Things</string>
+		</dict>
+	</array>
+</dict>
+</plist>

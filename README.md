@@ -1,4 +1,4 @@
-#useful-things#
+# useful-things #
 _[Not to be confused with "needful things" (see King, Stephen)]_
 
 * __useful pack__: app store safe and general purpose
@@ -101,12 +101,12 @@ Deliberate touches.  See [my write up on InformIT](http://www.informit.com/artic
 ***View Dragging***
 From my Auto Layout book, adds constraint-based view dragging. This version is tweaked to remove constraints after moves because I needed to use it to demonstrate view dynamics. For use with the [Drag In View](http://www.informit.com/articles/article.aspx?p=2217000).
 
-##Books##
+## Books ##
 * [Latest Cookbook](https://github.com/erica/iOS-7-Cookbook)
 * [Auto Layout](https://github.com/erica/Auto-Layout-Demystified)
 * [Drawing/Quartz](https://github.com/erica/iOS-Drawing)
 
-##Various##
+## Various ##
 * [NSArray Utilities](https://github.com/erica/NSArray-Utilities)
 * [NSDate Utilities](https://github.com/erica/NSDate-Extensions)
 * [NSObject Utilities](https://github.com/erica/NSObject-Utility-Categories)
